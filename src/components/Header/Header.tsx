@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 import NavLinks from './NavLinks';
-import { SiPokemon } from 'react-icons/si';
 
 const Header = () => {
   return (
@@ -11,7 +10,7 @@ const Header = () => {
           to="/"
           className="logoLink"
         >
-          <SiPokemon size={240} />
+          <img src="/src/assets/logo-pokemon.svg" alt="logo cinza com o nome pokemon" />
         </Link>
         <NavLinks />
       </nav>

@@ -7,6 +7,7 @@ const NavLinks = () => {
     { to: '/cards', label: 'Cards' },
     { to: '/sobre', label: 'Sobre' },
     { to: '/contato', label: 'Contato' },
+    { to: 'https://pokemontcg.io/', label: 'Documentação' },
   ];
 
   return (
