@@ -1,0 +1,46 @@
+.about-page {
+  padding: 4rem 0;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  color: var(--primary-red);
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+ul li {
+  font-size: 1rem;
+  color: #333;
+}
+
+ul li::before {
+  margin-right: 8px;
+}
