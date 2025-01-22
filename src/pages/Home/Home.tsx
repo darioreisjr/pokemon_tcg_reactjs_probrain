@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Search } from 'lucide-react';
 import './Home.css';
+import { CiSearch } from 'react-icons/ci';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Home = () => {
           className="button home-button"
           onClick={handleExploreCards}
         >
-          <Search size={24} />
+          <CiSearch size={24} />
           Explorar Cards
         </button>
       </div>
