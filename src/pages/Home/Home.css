@@ -12,6 +12,10 @@
   font-size: 3rem;
   margin-bottom: 2rem;
   color: var(--primary-red);
+  font-family: var(--font-title);
+  font-weight: 300;
+  line-height: 4rem;
+  letter-spacing: 0.050em;
 }
 
 .home-description {
@@ -27,8 +31,10 @@
   margin: 0 auto;
   padding: 1rem 2rem;
   font-size: 1.25rem;
+  
 }
 
 .home-button:hover {
-  background-color: var(--primary-dark-blue);
+  background-color: var(--primary-red);
+  color: var(--text-light);
 }

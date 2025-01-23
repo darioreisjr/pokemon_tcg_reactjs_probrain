@@ -6,6 +6,7 @@
   --text-dark: #1a1a1a;
   --background-light: #f5f5f5;
   --card-shadow: rgba(0, 0, 0, 0.1);
+  --font-title: "Luckiest Guy", serif;
 }
 
 * {
@@ -39,6 +40,7 @@ body {
 .button:hover {
   transform: translateY(-2px);
 }
+
 
 .card {
   background-color: white;

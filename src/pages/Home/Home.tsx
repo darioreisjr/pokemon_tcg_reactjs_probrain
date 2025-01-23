@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import './Home.css';
 import { CiSearch } from 'react-icons/ci';
+
+import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
