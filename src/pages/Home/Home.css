@@ -1,5 +1,5 @@
 .home-container {
-  padding: 4rem 0;
+  padding: 4rem 1rem; 
 }
 
 .home-content {
@@ -15,7 +15,7 @@
   font-family: var(--font-title);
   font-weight: 300;
   line-height: 4rem;
-  letter-spacing: 0.050em;
+  letter-spacing: 0.05em;
 }
 
 .home-description {
@@ -27,14 +27,49 @@
 .home-button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center; 
   margin: 0 auto;
   padding: 1rem 2rem;
   font-size: 1.25rem;
-  
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .home-button:hover {
   background-color: var(--primary-red);
   color: var(--text-light);
 }
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .home-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .home-description {
+    font-size: 0.9rem;
+  }
+
+  .home-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+

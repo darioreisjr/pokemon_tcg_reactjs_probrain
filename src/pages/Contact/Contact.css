@@ -1,9 +1,7 @@
-/* Container Principal */
 .contact-container {
   padding: 4rem 1rem;
 }
 
-/* Caixa de Contato */
 .contact-box {
   max-width: 600px;
   margin: 0 auto;
@@ -13,7 +11,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Cabeçalho */
 .contact-header {
   display: flex;
   align-items: center;
@@ -24,7 +21,6 @@
   text-align: center;
 }
 
-/* Formulário */
 .contact-form {
   display: grid;
   gap: 1.5rem;
@@ -48,7 +44,6 @@
   font-size: 1rem;
 }
 
-/* Mensagem de Sucesso */
 .success-message {
   background: var(--success-color);
   color: var(--text-light);
@@ -58,7 +53,6 @@
   text-align: center;
 }
 
-/* Botão de Enviar */
 .submit-button {
   background: var(--primary-yellow);
   color: var(--text-dark);
@@ -76,7 +70,6 @@
   color: var(--text-light);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .contact-box {
     padding: 1.5rem;
