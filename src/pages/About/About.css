@@ -1,5 +1,5 @@
 .about-page {
-  padding: 4rem 0;
+  padding: 4rem 1rem; 
 }
 
 .about-content {
@@ -41,4 +41,30 @@ ul li {
 
 ul li::before {
   margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    padding: 1.5rem; 
+  }
+
+  .about-header {
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 1rem; 
+  }
+
+  ul li {
+    font-size: 0.9rem; 
+}
 }
