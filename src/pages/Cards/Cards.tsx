@@ -194,7 +194,10 @@ const Cards = () => {
       <div className="pagination">
         <button
           className="button"
-          onClick={() => setPage(p => Math.max(1, p - 1))}
+          onClick={() => {
+            setPage(p => Math.max(1, p - 1));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           disabled={page === 1}
         >
           Anterior
@@ -202,12 +205,16 @@ const Cards = () => {
         <span>Página {page} de {totalPages}</span>
         <button
           className="button"
-          onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+          onClick={() => {
+            setPage(p => Math.min(totalPages, p + 1));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           disabled={page === totalPages}
         >
           Próxima
         </button>
       </div>
+
 
       <Modal isOpen={!!selectedCard} onClose={() => setSelectedCard(null)}>
         {selectedCard && (
