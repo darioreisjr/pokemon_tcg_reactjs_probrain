@@ -2,19 +2,24 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import NavLinks from './NavLinks';
+import logo from '../../assets/logo-pokemon.svg';
 
-const Header = () => {
+const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <header className="header">
+    <header className="header-container">
       <nav className="nav container">
         <Link to="/" className="logoLink">
-          <img src="/src/assets/logo-pokemon.svg" alt="logo cinza com o nome pokemon" />
+          <img src={logo} alt="logo cinza com o nome pokemon" />
         </Link>
         <div
           className={`menu-toggle ${menuOpen ? 'open' : ''}`}
@@ -25,7 +30,7 @@ const Header = () => {
           <span></span>
         </div>
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <NavLinks />
+          <NavLinks closeMenu={closeMenu} />
         </ul>
       </nav>
     </header>

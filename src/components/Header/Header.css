@@ -1,4 +1,4 @@
-.header {
+.header-container {
   width: 100%;
   height: 145px;
   background-color: var(--background-light);
@@ -65,8 +65,15 @@
 }
 
 @media (max-width: 768px) {
-  .nav {
-    flex-wrap: wrap;
+  .header-container {
+    height: auto;
+    padding: 1rem 0;
+  }
+  
+  .navLinks{
+    display: display;
+    flex-direction: column;
+    align-items: center;
   }
 
   .nav-links {
