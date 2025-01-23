@@ -5,21 +5,19 @@
 .about-content {
   max-width: 800px;
   margin: 0 auto;
-  background-color: white;
+  background-color: var(--background-color);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px var(--card-shadow);
 }
 
-.header {
+.about-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.header h1 {
   color: var(--primary-red);
+  margin-bottom: 2rem;
+  font-family: var(--font-subtitles);
 }
 
 .section {

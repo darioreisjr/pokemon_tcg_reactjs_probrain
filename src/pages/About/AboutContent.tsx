@@ -4,8 +4,8 @@ import { BsInfoCircle } from 'react-icons/bs';
 const AboutContent = () => {
   return (
     <div className="about-content">
-      <header className="header">
-        <BsInfoCircle size={32} color="var(--primary-red)" />
+      <header className="about-header">
+        <BsInfoCircle size={32} />
         <h1>Sobre o Projeto</h1>
       </header>
 
