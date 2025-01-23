@@ -5,6 +5,7 @@ import './Cards.css';
 import { IoFilter } from 'react-icons/io5';
 import { CiSearch } from 'react-icons/ci';
 import { getCards, getRarities, getTypes } from '../../services/cardService';
+import { MdOutlineCatchingPokemon } from 'react-icons/md';
 
 interface Pokemon {
   id: string;
@@ -99,77 +100,83 @@ const Cards = () => {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <h2>Total de Cards: {totalCards}</h2>
-        <button
-          className="filter-toggle"
-          onClick={() => setShowFilters(!showFilters)}
-        >
-          <IoFilter size={20} />
-          {showFilters ? 'Ocultar Filtros' : 'Mostrar Filtros'}
-        </button>
-      </div>
+    <div className="card-container">
+      <div className='card-header'>
+        <div className="search-bar-container">
+          <form onSubmit={handleSearch} className="search-bar">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Pesquisar um pokemon"
+              className="search-input"
+            />
+            <button type="submit" className="search-button">
+              <CiSearch size={20} />
+            </button>
+          </form>
 
-      <form onSubmit={handleSearch} className="search-bar">
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Buscar por nome..."
-          className="search-input"
-        />
-        <button type="submit" className="button">
-          <CiSearch size={20} />
-          Buscar
-        </button>
-      </form>
-
-      {showFilters && (
-        <div className="filters">
-          <div className="filters-grid">
-            <div>
-              <label>Tipo</label>
-              <select
-                value={selectedType}
-                onChange={(e) => {
-                  setSelectedType(e.target.value);
-                  handleFilter();
-                }}
-              >
-                <option value="">Todos os tipos</option>
-                {types.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label>Raridade</label>
-              <select
-                value={selectedRarity}
-                onChange={(e) => {
-                  setSelectedRarity(e.target.value);
-                  handleFilter();
-                }}
-              >
-                <option value="">Todas as raridades</option>
-                {rarities.map((rarity) => (
-                  <option key={rarity} value={rarity}>
-                    {rarity}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="filter-toggle-container">
+            <button
+              className="filter-toggle"
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              <IoFilter size={20} />
+              <p>Filtrar por:</p>
+            </button>
           </div>
 
-          <button onClick={clearFilters} className="clear-filters">
-            Limpar Filtros
-          </button>
+          <div className="filters-container">
+            <div className="filters">
+              <div className="filters-grid">
+                <div>
+                  <select
+                    value={selectedType}
+                    onChange={(e) => {
+                      setSelectedType(e.target.value);
+                      handleFilter();
+                    }}
+                  >
+                    <option value="">Todos os tipos</option>
+                    {types.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <select
+                    value={selectedRarity}
+                    onChange={(e) => {
+                      setSelectedRarity(e.target.value);
+                      handleFilter();
+                    }}
+                  >
+                    <option value="">Todas as raridades</option>
+                    {rarities.map((rarity) => (
+                      <option key={rarity} value={rarity}>
+                        {rarity}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <button onClick={clearFilters} className="clear-filters">
+                Limpar Filtros
+              </button>
+            </div>
+          </div>
         </div>
-      )}
+
+
+        <div className="total-cards">
+          <MdOutlineCatchingPokemon size={24} />
+          <h2>Total: {totalCards} Pokémons</h2>
+        </div>
+      </div>
 
       {loading && <p>Carregando...</p>}
       {error && <p className="error-message">{error}</p>}
@@ -204,13 +211,13 @@ const Cards = () => {
 
       <Modal isOpen={!!selectedCard} onClose={() => setSelectedCard(null)}>
         {selectedCard && (
-          <div className="modal-content">
+          <div className="modal-container">
+            <h2>{selectedCard.name}</h2>
             <img
               src={selectedCard.images.large}
               alt={selectedCard.name}
-              className="modal-image"
+              className="modal-container-image"
             />
-            <h2>{selectedCard.name}</h2>
             {selectedCard.types && (
               <div className="types">
                 <h3>Tipos:</h3>
@@ -234,7 +241,7 @@ const Cards = () => {
               </div>
             )}
             {selectedCard.rarity && (
-              <p><strong>Raridade:</strong> {selectedCard.rarity}</p>
+              <p className="rarity"><strong>Raridade</strong> {selectedCard.rarity}</p>
             )}
           </div>
         )}
