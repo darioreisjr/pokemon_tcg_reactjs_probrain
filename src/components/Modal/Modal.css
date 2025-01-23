@@ -4,21 +4,25 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 999; 
 }
+
 
 .modal-content {
   position: relative;
-  background-color: var(--background-color);
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 60%;
+  background-color: var(--background-color); 
+  padding: 2rem; 
+  border-radius: 8px; 
+  max-width: 600px; 
+  width: 90%; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease, opacity 0.3s ease; 
 }
+
 
 .close-button {
   position: absolute;
@@ -26,5 +30,31 @@
   right: 1rem;
   background: none;
   border: none;
+  font-size: 1.5rem; 
   cursor: pointer;
+  color: inherit; 
+  transition: color 0.2s ease; 
+}
+
+.close-button:hover {
+  color: var(--primary-color); 
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 80%; 
+    padding: 1.5rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%; 
+    padding: 1rem; 
+  }
+
+  .close-button {
+    font-size: 1.2rem; 
+  }
 }
