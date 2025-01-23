@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer, useCallback, useState } from 'react';
 import SuccessMessage from './SuccessMessage';
 import { z } from 'zod';
 import emailjs from 'emailjs-com';
@@ -55,8 +55,16 @@ const formReducer = (state: FormState, action: { type: string; payload?: any }):
   }
 };
 
+const LoadingSpinner = () => (
+  <div className="loading-spinner">
+    <div className="spinner"></div>
+    <p>Enviando...</p>
+  </div>
+);
+
 const ContactForm = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -76,28 +84,26 @@ const ContactForm = () => {
         return;
       }
 
+      setIsLoading(true); // Ativa o loading
+
       try {
         const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || '';
         const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || '';
         const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY || '';
 
         if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-          console.log(import.meta.env);
           console.error('Variáveis de ambiente estão faltando!');
           return;
         }
 
-        await emailjs.send(
-          SERVICE_ID,
-          TEMPLATE_ID,
-          state.formData,
-          PUBLIC_KEY
-        );
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, state.formData, PUBLIC_KEY);
 
         dispatch({ type: 'SUBMIT_SUCCESS' });
         setTimeout(() => dispatch({ type: 'RESET_SUBMIT' }), 3000);
       } catch (error) {
         dispatch({ type: 'SET_ERRORS', payload: 'Erro ao enviar o e-mail. Tente novamente mais tarde.' });
+      } finally {
+        setIsLoading(false); // Desativa o loading
       }
     },
     [state.formData]
@@ -112,7 +118,15 @@ const ContactForm = () => {
       <form className="contact-form" onSubmit={handleSubmit}>
         {['name', 'email', 'subject', 'message'].map((field) => (
           <div key={field} className="form-group">
-            <label htmlFor={field}>{field === 'name' ? 'Nome' : field.charAt(0).toUpperCase() + field.slice(1)}</label>
+            <label htmlFor={field}>
+              {field === 'name'
+                ? 'Nome'
+                : field === 'email'
+                  ? 'E-mail'
+                  : field === 'subject'
+                    ? 'Assunto'
+                    : 'Mensagem'}
+            </label>
             {field === 'message' ? (
               <textarea
                 id={field}
@@ -134,8 +148,8 @@ const ContactForm = () => {
             )}
           </div>
         ))}
-        <button type="submit" className="submit-button">
-          Enviar Mensagem
+        <button type="submit" className="submit-button" disabled={isLoading}>
+          {isLoading ? <LoadingSpinner /> : 'Enviar Mensagem'}
         </button>
       </form>
     </div>
