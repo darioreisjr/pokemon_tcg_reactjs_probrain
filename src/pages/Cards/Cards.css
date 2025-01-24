@@ -211,12 +211,37 @@ select {
     gap: 1rem;
   }
 
+  .card-container{
+    padding: 0.5rem;
+    margin: 0 auto;
+  }
+
+  .card-header{
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-bar-container{
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+
   .search-bar {
     width: 100%;
   }
 
   .filters-container {
     width: 100%;
+    height: auto;
+  }
+
+  .filters-grid {
+    flex-direction: column;
+  }
+
+  .clear-filters{
+    width: 80%;
+    margin: 0 auto;
   }
 
   .card-grid {
@@ -225,5 +250,50 @@ select {
 
   .modal-container {
     width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card-container{
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  .search-bar-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-bar {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .filters-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+
+  .filters-grid div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .clear-filters{
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
