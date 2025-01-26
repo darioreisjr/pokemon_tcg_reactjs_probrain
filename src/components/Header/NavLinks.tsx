@@ -1,15 +1,8 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { NavLink, NavLinksProps } from '../../@types/navLinks';
+
 import './Header.css';
-
-interface NavLink {
-  to: string;
-  label: string;
-  target?: string;
-}
-
-interface NavLinksProps {
-  closeMenu?: () => void;
-}
 
 const NavLinks: React.FC<NavLinksProps> = ({ closeMenu }) => {
   const links: NavLink[] = [

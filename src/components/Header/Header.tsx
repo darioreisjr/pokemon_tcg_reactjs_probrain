@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css';
 import NavLinks from './NavLinks';
 import logo from '../../assets/logo-pokemon.svg';
 
-const Header: React.FC = () => {
+import './Header.css';
+
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {

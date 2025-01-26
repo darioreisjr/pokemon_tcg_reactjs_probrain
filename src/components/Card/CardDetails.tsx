@@ -1,10 +1,5 @@
-interface CardDetailsProps {
-  card: {
-    name: string;
-    types?: string[];
-    rarity?: string;
-  };
-}
+import { CardDetailsProps } from '../../@types/cardDetails';
+import './Card.css';
 
 const CardDetails = ({ card }: CardDetailsProps) => {
   return (

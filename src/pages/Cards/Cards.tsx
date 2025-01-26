@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Modal from '../../components/Modal/Modal';
 import Card from '../../components/Card/Card';
-import './Cards.css';
 import { IoFilter } from 'react-icons/io5';
 import { CiSearch } from 'react-icons/ci';
 import { getCards, getRarities, getTypes } from '../../services/cardService';
 import { MdOutlineCatchingPokemon } from 'react-icons/md';
+
+import './Cards.css';
 
 interface Pokemon {
   id: string;

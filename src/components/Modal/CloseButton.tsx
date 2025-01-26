@@ -1,15 +1,10 @@
 import { RiCloseLargeFill } from 'react-icons/ri';
-
-interface CloseButtonProps {
-  onClose: () => void;
-}
+import { CloseButtonProps } from '../../@types/closeButton';
+import './Modal.css';
 
 const CloseButton = ({ onClose }: CloseButtonProps) => {
   return (
-    <button
-      onClick={onClose}
-      className="close-button"
-    >
+    <button onClick={onClose} className="close-button">
       <RiCloseLargeFill size={24} />
     </button>
   );
